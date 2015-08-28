@@ -289,7 +289,7 @@ int rgb8ToConsole(int* c) {
 
 inline void mapgs(int* x)
 {
-	*x = *x * 31 / 255;
+	*x = *x * 24 / 255;
 }
 
 inline void mapc(int* x)
@@ -308,9 +308,6 @@ int rep8(int startx, int starty, int x, int y, uint8_t* img) {
 			a[r] = *(img+cx*3+cy*x*3+r);
 			a[g] = *(img+cx*3+cy*x*3+g);
 			a[b] = *(img+cx*3+cy*x*3+b);
-			//if(!(a[r]+a[g]+a[b]))
-			//	printf("\e[0m ");
-			//else
 			printf("\e[48;5;%im ", rgb8ToConsole(a));
 			cx++;
 		}
