@@ -294,7 +294,7 @@ inline void mapgs(int* x)
 
 inline void mapc(int* x)
 {
-	*x = *x * 5 / 31;
+	*x = *x * 5 / 24;
 }
 
 int rep8(int startx, int starty, int x, int y, uint8_t* img) {
