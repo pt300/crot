@@ -189,6 +189,28 @@ int rot1(int rd, int x, int y, uint8_t* mem, uint8_t* dest) {
 		}
 		cx = x;
 	}
+	cx = x;
+	cy = y;
+	uint8_t calc;
+	while(cy--) {
+		while(cx--) {
+			if(cx && cy && cx<x-1 && cy<y-1) {
+				calc = 0;
+				calc += get(cx+1, cy, x, dest);
+				calc += get(cx-1, cy, x, dest);
+				calc += get(cx, cy+1, x, dest);
+				calc += get(cx, cy-1, x, dest);
+				if(calc>=3) {
+					set(1, cx, cy, x, dest);
+				}
+				else if(!calc) {
+					set(0, cx, cy, x, dest);
+
+				}
+			}
+		}
+		cx = x;
+	}
 	return 0;
 }
 
